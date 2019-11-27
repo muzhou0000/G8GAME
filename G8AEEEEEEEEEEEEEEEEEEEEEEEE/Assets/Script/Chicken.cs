@@ -7,6 +7,7 @@ public class Chicken : MonoBehaviour
     [Header("移動速度"), Range(1, 100), Tooltip("G8雞的")]
     public int speed;
 
+    #region 行動
     void run(int speed)
     {
         print("G8雞的跑步速度："+speed);
@@ -41,7 +42,7 @@ public class Chicken : MonoBehaviour
         print("G8雞" + see);
 
     }
-
+    #endregion
     private void Start()
     {
         ridi = GetComponent<Rigidbody>();

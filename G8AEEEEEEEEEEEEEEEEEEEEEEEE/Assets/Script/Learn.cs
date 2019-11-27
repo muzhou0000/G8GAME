@@ -3,6 +3,10 @@ using UnityEngine;
 
 public class Learn : MonoBehaviour
 {
+    private int Square(int number = 2)
+    {
+        return (number * number);
+    }
 
     private void Drive(int speed)
     {
@@ -28,8 +32,25 @@ public class Learn : MonoBehaviour
         Love(1800,zzcoco:"456");
         Love(2000,"marry");
         Love(3000);
+
+        print(Square());
+
+        int result = Square(4);
+        print(result);
+
+        print(Random.Range(1, 10));
+
+        Debug.Log("456");
+        Debug.LogWarning("456");
+        Debug.LogError("456");
+
+    }
+
+    private void Update()
+    {
+        //print(Input.mousePosition);
+
+        print(Input.GetKeyDown(KeyCode.Space));
         
-
-
     }
 }
