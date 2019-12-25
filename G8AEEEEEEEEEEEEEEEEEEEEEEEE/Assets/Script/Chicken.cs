@@ -24,6 +24,7 @@ public class Chicken : MonoBehaviour
     public Animator ani;
     public AudioClip auc;
     public AudioSource AS;
+    public Rigidbody rigcatch;
     private void Update()
     {
         Turn();
@@ -31,6 +32,19 @@ public class Chicken : MonoBehaviour
         Bark();
         Catch();
 
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.name == "雞腿" && ani.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
+        {
+            Physics.IgnoreCollision(other,GetComponent<Collider>());
+            other.GetComponent<HingeJoint>().connectedBody = rigcatch;
+        }
+        if (other.name == "區域" && ani.GetCurrentAnimatorStateInfo(0).IsName("Eat"))
+        {
+            GameObject.Find("雞腿").GetComponent<HingeJoint>().connectedBody = null;
+        }
     }
 
     #region 方法區域
